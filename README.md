@@ -3,6 +3,7 @@ device driver for controling 4 leds
 ---
 2020年ロボットシステム学 課題1の為に作成したリポジトリです。
 <br>
+本リポジトリ内のソースコードは上田隆一教授が授業の為に作成したデバイスドライバを改変し製作しました。改変元のソースコードはこちらのリポジトリhttps://github.com/ryuichiueda/robosys_device_drivers にあります。こちらのリポジトリ内myled.c,Makefileを元に改変しました。
 4つのledを点滅させる事でled1～4それぞれを光らせるかどうかの場合を全列挙する事が出来ます。つまりled1,2,3,4の集合のべき集合を全列挙できます。
 
 ---
@@ -39,8 +40,8 @@ device driver for controling 4 leds
 | led2  | :GPIO 24     |
 | led3 | :GPIO 25         |
 | led4 | :GPIO 26         |
+| 各ledのカソード | :GND 物理ピン番号 6         |
 
-カソードはRaspi3b+の適当なGNDに全て接続する。
 
 
 ---
