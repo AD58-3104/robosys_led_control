@@ -24,10 +24,14 @@ static ssize_t led_write(struct file *filp, const char *buf, size_t count, loff_
     int i = 0;
     int j = 0;
     printk(KERN_INFO "receive %c\n",c);
-
-
-    
-    for(i = 0;i < (1 << 4);++i){
+    int max = 0;
+    if((c < '5') && ('0' < c)){
+        max = c - '0';
+    }
+    else{
+        max = 0;
+    }
+    for(i = 0;i < (1 << max);++i){
         for(j = 0;j < 4;++j){
             if( (i & (1 << j) )> 0){
                 gpio_base[7] = 1 << (23+ j);
@@ -36,10 +40,8 @@ static ssize_t led_write(struct file *filp, const char *buf, size_t count, loff_
                 gpio_base[10] = 1 << (23 + j);
             }
         }
-        mdelay(1000);
+        mdelay(500);
     }
-    
-
     return 1;
 }
 
