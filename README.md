@@ -28,6 +28,7 @@ device driver for controling 4 leds
 
 下記画像のledを右から順にled1,led2,led3,led4とする。
 
+<img src="https://github.com/AD58-3104/robosys_led_control/blob/main/led_pin.jpg" width="320px">
 
 ・[Raspi 3b+のピン配置](https://pinout.xyz/pinout/ground)
 ### 以下の表に対応する様にledのアノードとRaspi 3b+のGPIOピンを接続する。
