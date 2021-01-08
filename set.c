@@ -24,20 +24,21 @@ static ssize_t led_write(struct file *filp, const char *buf, size_t count, loff_
     int i = 0;
     int j = 0;
     printk(KERN_INFO "receive %c\n",c);
-    gpio_base[10] = 1 << (23+ j);
 
-    /*for(i = 0;i < (1 << 4);++i){
-        for(j = 0;j < 4;++i){
+
+    
+    for(i = 0;i < (1 << 4);++i){
+        for(j = 0;j < 4;++j){
             if( (i & (1 << j) )> 0){
-                gpio_base[10] = 1 << (23+ j);
+                gpio_base[7] = 1 << (23+ j);
             }
             else{
-                gpio_base[7] = 1 << (23 + j);
+                gpio_base[10] = 1 << (23 + j);
             }
-            mdelay(500);
         }
+        mdelay(1000);
     }
-    */
+    
 
     return 1;
 }
@@ -55,10 +56,11 @@ static int __init init_mod(void)
     const u32 led_table[] = {23, 24, 25, 26};
     const u32 index = 2;
     const u32 shift_table[] = {(led_table[0]%10)*3,(led_table[1]%10)*3,(led_table[2]%10)*3,(led_table[3]%10)*3};
-    const u32 mask = ~((0x07 << shift_table[0]) + (0x07 << shift_table[1]) + (0x07 << shift_table[2]) + (0x07 << shift_table[3]) );
-    int i = 0;
-    for(i = 0; i < 4;++i){
-            gpio_base[index] = (gpio_base[index] & mask) | (0x1 << shift_table[i]);
+    const u32 mask = ~((0x07 << shift_table[0]) | (0x07 << shift_table[1]) | (0x07 << shift_table[2]) | (0x07 << shift_table[3]) );
+    int id = 0;
+    gpio_base[index] = (gpio_base[index] & mask);
+    for(id = 0; id < 4;++id){
+            gpio_base[index] = gpio_base[index] | (0x01 << shift_table[id]);
         }
 
     retval = alloc_chrdev_region(&dev, 0, 1, "set");
