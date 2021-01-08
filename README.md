@@ -46,6 +46,7 @@ device driver for controling 4 leds
 ## デモ動画
 
 https://www.youtube.com/watch?v=A8MgkF7aI3g
+
 led4つの時のべき集合を全列挙している様子です。
 
 
