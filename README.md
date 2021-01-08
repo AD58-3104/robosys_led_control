@@ -80,4 +80,4 @@ $ echo 4 > /dev/set0
 
 ---
 ## ライセンス
-[GNU General Public License v3.0](https://github.com/AD58-3104/robosys_led_control/blob/main/LICENSE)
+[GNU General Public License v3.0](https://github.com/AD58-3104/robosys_led_control/blob/main/COPYING)
