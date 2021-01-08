@@ -28,6 +28,7 @@ device driver for controling 4 leds
 
 下記画像のledを右から順にled1,led2,led3,led4とする。
 
+
 ・[Raspi 3b+のピン配置](https://pinout.xyz/pinout/ground)
 ### 以下の表に対応する様にledのアノードとRaspi 3b+のGPIOピンを接続する。
 
@@ -38,14 +39,14 @@ device driver for controling 4 leds
 | led3 | :GPIO 25         |
 | led4 | :GPIO 26         |
 
-### カソードはRaspi3b+の適当なGNDに全て接続する。
+カソードはRaspi3b+の適当なGNDに全て接続する。
 
 
 ---
 ## デモ動画
 
 
-### led4つの時のべき集合を全列挙している様子です。
+led4つの時のべき集合を全列挙している様子です。
 
 
 ---
